@@ -1,7 +1,8 @@
 #include <msp430.h>
 #include "led.h"
+#include <stdio.h>
 
-unsigned char red_on = 0, green_on = 1;
+unsigned char red_on = 0, green_on = 0;
 unsigned char led_changed = 0;
 
 static char redVal[] = {0, LED_RED}, greenVal[] = {0, LED_GREEN};
@@ -9,7 +10,9 @@ static char redVal[] = {0, LED_RED}, greenVal[] = {0, LED_GREEN};
 
 void led_init()
 {
-  P1DIR |= LEDS; //voltage to leds 0 and 6 (1 and 64)
+  printf(P1DIR);
+  P1DIR |= LEDS;
+  // bits attached to leds are output
   led_changed = 1;
   led_update();
 }
