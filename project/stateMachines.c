@@ -21,24 +21,35 @@ void state_advance()
   led_changed = changed;
   led_update();
 }
-void dim_red(){
-  char changed=0;
+void dim_green(){
   red_on=0;
   if (green_on==0)
     green_on=1;
   else if(green_on==1){
     green_on=0;
   }
-  changed=1;
-  led_changed=changed;
+  led_changed=1;
+  led_update();
+}
+void dim_red(){
+  green_on=0;
+  if(red_on==0)
+    red_on=1;
+  else if (red_on==1)
+    red_on=0;
+  led_changed=1;
+  led_update();
+}
+void bright_green(){
+  red_on=0;
+  green_on=1;
+  led_changed=1;
   led_update();
 }
 void bright_red(){
-  char changed=0;
-  red_on=0;
-  green_on=1;
-  changed=1;
-  led_changed=changed;
+  green_on=0;
+  red_on=1;
+  led_changed=1;
   led_update();
 }
 
