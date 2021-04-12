@@ -1,28 +1,32 @@
-## Description
-This program uses interrupts to detect when a switch is pressed or
-released.
+# Lab 2: Blinky-Buzzy-Toy
 
-Press S1, and the green LED is illuminated.  Release it, and the red
-LED is illuminated instead.
+## Getting Started
+to run the program, type in the command "make clean" followed by "make load"
+while inside of the project directory. Now you are ready to use the toy!
 
-## Exploration
-_LED toggle:_  A great initial project would be to modify this program to
-implement a state machine that "toggled" between the red and green LEDs
-each time the button is pressed. The LED should remain illuminated until
-the next time the button is pressed.
+## Cleaning Up
 
-_Separation of duties:_ Input and output are not always so closely
-connected.  Frequently an input begins a computation that eventually
-results in an output. For example, pressing "next song" on a streaming
-audio player begins a complicated multi-stage process that eventually
-results in a different song being played.  Suggestion: start with
-something simple such as responding to the buttons using interrupts to
-set state variables, and update the LEDs when the timer interrupt
-occurs.  
+When using the tokenizer, you can clean up the files, or remove unnecessary
+files, at any time by running "make clean"
 
-_Time and button interaction:_
-Integrate the timer mechanisms from the blink demo and have the button affect the blink sequence.
+## What Buttons?
+The buttons used in this toy are S1, S2, S3, and S4 on the green board (where
+the screen is).
 
-## Some Advice
-When creating your own variants to the demo programs,
-it's probably a good idea to keep a copy of the original program (or really understand how _git checkout_ works).  
+## Button S1
+S1 will cause the green led and red led to alternate 2 times per second.
+
+## Button S2
+S2 will cause the green light to alternate between dim and bright 2 times per
+second (button S2 if faulty hardware, but the code is there).
+
+## Button S3
+S3 will cause the red light to alternate between dim and bright 2 times per
+second.
+
+## Button S4
+S4 will play the a song...which should sound like the Super Mario theme... but
+doesn't :(.
+
+## Have fun!
+
