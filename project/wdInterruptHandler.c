@@ -22,7 +22,7 @@ __interrupt_vec(WDT_VECTOR) WDT(){	/* 250 interrupts/sec */
     dim_red();
   }
   else if(blink_count<125 && switch_state_changed==3){
-    bright_red();
+    bright_red_s();
   }
   else if (switch_state_changed==4 && blink_count==125){
     superMarioTheme();
