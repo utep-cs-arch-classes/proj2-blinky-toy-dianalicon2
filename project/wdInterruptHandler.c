@@ -24,7 +24,7 @@ __interrupt_vec(WDT_VECTOR) WDT(){	/* 250 interrupts/sec */
   else if(blink_count<125 && switch_state_changed==3){
     bright_red_s();
   }
-  else if (switch_state_changed==4 && blink_count==125){
+  else if (switch_state_changed==4 && blink_count==62){
     superMarioTheme();
     blink_count=0;
   }

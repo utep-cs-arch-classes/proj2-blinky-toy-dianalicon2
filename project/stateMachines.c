@@ -55,24 +55,27 @@ void bright_red(){
 
 void superMarioTheme(){
   if(switch_state_changed==4){
+    green_on=0;
+    red_on=0;
+    switch(song_counter){
 
-  switch(song_counter){
+    case 0:
 
-  case 0:
+    case 1:
 
-  case 1:
+    case 2:
 
-  case 2:
+    case 4: buzzer_set_period(750); song_counter++; break; //E note
 
-  case 4: buzzer_set_period(750); song_counter++; break; //E note
+    case 3: buzzer_set_period(950); song_counter++; break; //C note
 
-  case 3: buzzer_set_period(950); song_counter++; break; //C note
+    case 5: buzzer_set_period(630); song_counter++; break; //G note
 
-  case 5: buzzer_set_period(630); song_counter++; break; //G note
+    case 6: buzzer_set_period(1260); song_counter = 0; break; //Lower G note
 
-  case 6: buzzer_set_period(1260); song_counter = 0; break; //Lower G note
-
-  }
+    }
+    led_changed=1;
+    led_update();
   }
   else{
     buzzer_set_period(0);
