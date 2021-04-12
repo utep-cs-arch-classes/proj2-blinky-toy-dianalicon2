@@ -1,7 +1,8 @@
 #include <msp430.h>
 #include "stateMachines.h"
 #include "led.h"
-
+#include "buzzer.h"
+#include "switches.h"
 			/* always change
 
 
@@ -42,6 +43,7 @@ void bright_red(){
 }
 
 void superMarioTheme(){
+  if(switch_state_changed==4){
 
   switch(song_counter){
 
@@ -51,15 +53,18 @@ void superMarioTheme(){
 
   case 2:
 
-  case 4: buzzer_set_period(750); counterForSMTheme++; break; //E note
+  case 4: buzzer_set_period(750); song_counter++; break; //E note
 
-  case 3: buzzer_set_period(950); counterForSMTheme++; break; //C note
+  case 3: buzzer_set_period(950); song_counter++; break; //C note
 
-  case 5: buzzer_set_period(630); counterForSMTheme++; break; //G note
+  case 5: buzzer_set_period(630); song_counter++; break; //G note
 
-  case 6: buzzer_set_period(1260); counterForSMTheme = 0; break; //Lower G note
+  case 6: buzzer_set_period(1260); song_counter = 0; break; //Lower G note
 
   }
-
+  }
+  else{
+    buzzer_set_period(0);
+  }
 }
 
